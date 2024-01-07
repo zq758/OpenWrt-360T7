@@ -23,8 +23,6 @@ env:
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: main.config
-  DIY_P1_SH: diy1.sh
-  DIY_P2_SH: diy2.sh
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
@@ -80,7 +78,6 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        cat extra.config >> openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
