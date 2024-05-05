@@ -16,7 +16,7 @@ on:
       manual:
         description: '手动触发一次编译'
   schedule:
-    - cron: 0 0 * * *
+    - cron: 0 0 * * FRI
 
 env:
   REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
@@ -42,7 +42,7 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
-        sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)'
+        sudo bash -c 'bash <(curl -s -L https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)'
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
