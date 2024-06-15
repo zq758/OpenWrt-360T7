@@ -77,7 +77,7 @@ jobs:
 
     - name: 加载配置
       run: |
-        wget "https://raw.githubusercontent.com/hanwckf/immortalwrt-mt798x/openwrt-21.02/defconfig/mt7981-ax3000.config" openwrt/.config
+        wget "https://raw.githubusercontent.com/hanwckf/immortalwrt-mt798x/openwrt-21.02/defconfig/mt7981-ax3000.config" -O ./openwrt/.config
 
     - name: 下载包
       id: package
